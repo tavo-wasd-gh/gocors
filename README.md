@@ -13,11 +13,12 @@ import (
 )
 
 func endpoint(w http.ResponseWriter, r *http.Request) {
-	if cors.Handler(w, r, "POST, GET, OPTIONS") {
+	if !cors.Handler(w, r, "*", "GET, OPTIONS", "Content-Type", false) {
 		return
 	}
 
-	fmt.Fprintln(w, "Request handled")
+	// Endpoint logic
+	fmt.Fprintln(w, "Hello world after valid CORS headers")
 }
 
 func main() {
