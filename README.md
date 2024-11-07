@@ -13,7 +13,7 @@ import (
 )
 
 func endpoint(w http.ResponseWriter, r *http.Request) {
-    // Allowed:        origins         methods         headers  creds
+	// Allowed:        origins         methods         headers  creds
 	if !cors.Handler(w, r, "*", "GET, OPTIONS", "Content-Type", false) {
 		return
 	}
