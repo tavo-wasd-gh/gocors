@@ -26,6 +26,8 @@ func setHeaders(w http.ResponseWriter, origins string, methods string, headers s
 
 	if credentials {
 		w.Header().Set("Access-Control-Allow-Credentials", "true")
+	} else {
+		w.Header().Set("Access-Control-Allow-Credentials", "false")
 	}
 }
 
